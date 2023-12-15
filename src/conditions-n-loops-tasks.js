@@ -21,8 +21,8 @@
  *  0  => true
  *  -5 => false
  */
-function isPositive(/* number */) {
-  throw new Error('Not implemented');
+function isPositive(number) {
+  return number >= 0;
 }
 
 /**
@@ -38,8 +38,8 @@ function isPositive(/* number */) {
  *  -5, 0, 5      => 5
  *  -0.1, 0, 0.2  => 0.2
  */
-function getMaxNumber(/* a, b, c */) {
-  throw new Error('Not implemented');
+function getMaxNumber(a, b, c) {
+  return Math.max(a, b, c);
 }
 
 /**
@@ -98,8 +98,23 @@ function isIsoscelesTriangle(/* a, b, c */) {
  *  10  => X
  *  26  => XXVI
  */
-function convertToRomanNumerals(/* num */) {
-  throw new Error('Not implemented');
+function convertToRomanNumerals(num) {
+  let numRome = '';
+  numRome += 'X'.repeat(Math.floor(num / 10));
+  const numDivTen = num % 10;
+  if (numDivTen === 9) {
+    numRome += 'IX';
+  } else if (numDivTen >= 5) {
+    numRome += 'V';
+    numRome += 'I'.repeat((num % 10) % 5);
+  } else if (numDivTen === 4) {
+    numRome += 'I';
+    numRome += 'V';
+  } else {
+    numRome += 'I'.repeat((num % 10) % 5);
+  }
+
+  return numRome;
 }
 
 /**
