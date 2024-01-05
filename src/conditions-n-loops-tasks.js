@@ -443,8 +443,29 @@ function shuffleChar(str, iterations) {
   let leftStr = '';
   let rightStr = '';
   let fullStr = str;
+  let iterationToStartingStr = 0;
 
   for (let i = 0; i < iterations; i += 1) {
+    leftStr = '';
+    rightStr = '';
+    for (let x = 0; x < str.length; x += 1) {
+      if (x % 2 === 0) {
+        leftStr += fullStr[x];
+      } else {
+        rightStr += fullStr[x];
+      }
+    }
+    fullStr = leftStr + rightStr;
+    if (str === fullStr) {
+      iterationToStartingStr = iterations % (i + 1);
+      if (i === iterations - 1) {
+        return fullStr;
+      }
+      break;
+    }
+  }
+
+  for (let i = 0; i < iterationToStartingStr; i += 1) {
     leftStr = '';
     rightStr = '';
     for (let x = 0; x < str.length; x += 1) {
