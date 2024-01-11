@@ -436,7 +436,7 @@ function sortByAsc(arr) {
       }
     }
 
-    return [...sortByAsc(left), array[pivot], ...sortByAsc(right)];
+    return [...sortByAsc(left), pivot, ...sortByAsc(right)];
   }
 
   const sortedArr = quickSort(arr);
